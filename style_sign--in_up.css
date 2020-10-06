@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a,p, input{
+    font-family: "Segoe UI", Georgia, Serif;
+    line-height: 1.5;
+    font-size: 20px;
+}
+body{
+    background-color: rgb(54, 57, 63);
+}
+h2{
+    font-family: "Segoe UI", Georgia, Serif;
+    line-height: 1.5;
+    font-size: 28px;
+
+}
+.container{
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(32, 34, 37);
+    display: flex;
+    justify-content: center;
+}
+form{
+    width: 90%;
+}
+.container h2{
+    margin-top: 15px;
+    text-align: center;
+    color: white;
+}
+.container p{
+    text-align: center;
+    margin: 20px;
+}
+.container input{
+    width: 100%;
+    display: block;
+    background: none;
+    border: 2px solid rgb(46, 123, 88);
+    text-align: center;
+    color: rgb(220, 221, 222);
+    outline: none;
+    border-radius: 5px;
+    line-height: 2;
+}
+.container input:hover, input:focus{
+    border: 2px solid rgb(25, 196, 119);
+}
+.container button{
+    font-family: "Segoe UI", Georgia, serif;
+    font-weight: 600;
+    line-height: 2;
+    color: white;
+    font-size: 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(46, 123, 88);
+
+}
+.container button:hover{
+    background-color: rgb(50, 150, 105);
+}
+.errors_msg{
+    font-family: "Segoe UI", Georgia, Serif;
+    font-size: 15px;
+    color: rgb(245, 66, 66);
+    text-align: center;
+    padding-top: 15px;
+    display: none;
+}
+.successfully_msg{
+    font-family: "Segoe UI", Georgia, Serif;
+    font-size: 15px;
+    color: rgb(29, 204, 29);
+    display: none;
+    text-align: center;
+    display: none;
+}
+.successfully_msg p{
+    font-size: 15px;
+
+}
