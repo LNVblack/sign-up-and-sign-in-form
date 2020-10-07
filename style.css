@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: rgb(54, 57, 63);
+}
 a,p, input{
     font-family: "Segoe UI", Georgia, Serif;
     line-height: 1.5;
@@ -30,4 +33,21 @@ header a{
 }
 header a:hover{
     text-decoration: underline;
+}
+.status_t, .status_f{
+    display: none;
+}
+main{
+    display: flex;
+    justify-content: center;
+}
+.infoblock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.infoblock p{
+    font-size: 75px;
+    color: white;
 }
