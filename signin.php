@@ -1,21 +1,22 @@
+<?php require "db.php";?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href = "style_sign--in_up.css">
     <title>Sing in</title>
 </head>
 <body>
-    
     <?php
-        require "db.php";
         $data = $_POST;
         if(isset($data['do_signin'])){
-            $user = R::find('username', 'username = ?', array($data['login']));
+            $user = R::getRow('SELECT * FROM username WHERE `username` = ?',array($data['login']));
             if ($user){
-                if($user){//password_verify($data['password'], $user->password)){
-                    //Здесь нужно открыть сессию, но ебаное условие не срабатывает
+                $pass_log_check = R::getRow('SELECT * FROM username WHERE `username` = ? AND `password` = ?', 
+                    array($data['login'], md5($data['password'])));
+                if ($pass_log_check){
+                    $_SESSION['verfication_user'] = $user;
+                    echo '<script>document.location.href = "index.php";</script>';
                 }else{
                     $errors[] = 'Пароль введен неверно!' ;
                 }
@@ -42,7 +43,7 @@
                 <input type="password" name="password" class="form-control" placeholder="Password">
             </p>
             <p>
-                <button class="btn" name="do_signin" type="submin">Login</button>
+                <button class="btn" name="do_signin" type="submin">Logi n</button>
             </p>
         </form>
     </div>
