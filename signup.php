@@ -1,8 +1,8 @@
+<?php require "db.php";?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href = "style_sign--in_up.css">
     <title>Sign up</title>
 </head>
@@ -13,7 +13,6 @@
         }
     </style>
     <?php
-        require "db.php";
         $data = $_POST;
         if(isset($data['do_signup'])){
             
@@ -35,12 +34,13 @@
             if(empty($errors)){
                 $user = R::dispense('username');
                 $user->username = $data['login'];
-                $user->password = password_hash($data['password'], PASSWORD_DEFAULT);
+                //$user->password = password_hash($data['password'], PASSWORD_DEFAULT);
+                $user->password = md5($data['password']);
                 $user->email = $data['email'];
                 $user->firstname = $data['firstname'];
                 $user->lastname = $data['lastname'];
                 R::store($user);
-                echo '<style>.successfully_msg{display:block;}</style>';
+                echo '<script>document.location.href = "index.php";</script>';
             }else{
                 echo '<style>.errors_msg{display:block;}</style>';
             }
@@ -51,11 +51,6 @@
             <div class="errors_msg">
                 <?php 
                     echo ''.array_shift($errors);
-                ?>
-            </div>
-            <div class="successfully_msg">
-                <?php 
-                    echo '<p>Регистрация прошла успешно!</p>';
                 ?>
             </div>
             <h2>Sign up</h2>
