@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href = "style_sign--in_up.css">
+    <link rel="stylesheet" href = "style/style_sign--in_up.css">
     <title>Sign up</title>
 </head>
 <body>
