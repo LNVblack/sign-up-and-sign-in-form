@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href = "style/style_sign--in_up.css">
+    <link rel="icon" href="favicon_hb2_icon.ico" type="image/x-icon" />
     <title>Sing in</title>
 </head>
 <body>

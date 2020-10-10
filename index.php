@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href = "style/style.css">
+    <link rel="icon" href="favicon_hb2_icon.ico" type="image/x-icon" />
     <title>Главная</title>
 </head>
 <body>
