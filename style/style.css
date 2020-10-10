@@ -46,7 +46,7 @@ header a{
 header a:hover{
     color: rgb(150, 152, 156);
 }
-.status_t, .status_f{
+.status_t, .status_f, .status_a{
     display: none;
 }
 main{
@@ -59,9 +59,15 @@ main{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.infoblock p{
+.hello_msg{
     font-size: 75px;
     color: white;
+    text-align: center;
+}
+.hello_name{
+    font-size: 25px;
+    color: white;
+    text-align: center;
 }
 .weclome_side{
     height: 93vh;

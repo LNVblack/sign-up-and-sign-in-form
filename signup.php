@@ -1,4 +1,9 @@
 <?php require "db.php";?> 
+<?php 
+if (!isset($_SESSION['verfication_user'])){
+    echo '<script>document.location.href = "index.php";</script>';
+}else if ($_SESSION['verfication_user']['role'] != "0"){
+    echo '<script>document.location.href = "index.php";</script>';}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +44,9 @@
                 $user->email = $data['email'];
                 $user->firstname = $data['firstname'];
                 $user->lastname = $data['lastname'];
+		        if ($data['av'] == 'on'){
+                    $user->role = 0;
+                }else{$user->role = 1;}
                 R::store($user);
                 echo '<script>document.location.href = "index.php";</script>';
             }else{
@@ -55,22 +63,26 @@
             </div>
             <h2>Sign up</h2>
             <p>
-                <input type="text" name="firstname" placeholder="Firstname" value="<?php echo @$data['firstname'];?>" required>
+                <input type="text" name="firstname" placeholder="Имя" value="<?php echo @$data['firstname'];?>" required>
             </p>
             <p>
-                <input type="text" name="lastname" class="form-control" placeholder="Lastname" value="<?php echo @$data['lastname'];?>" required>
+                <input type="text" name="lastname" class="form-control" placeholder="Фамилия" value="<?php echo @$data['lastname'];?>" required>
             </p>
             <p>
-                <input type="text" name="login" class="form-control" placeholder="Login" value="<?php echo @$data['login'];?>" required>
+                <input type="text" name="login" class="form-control" placeholder="Логин" value="<?php echo @$data['login'];?>" required>
             </p>
             <p>
                 <input type="email" name="email" class="form-control" placeholder="E-mail" value="<?php echo @$data['email'];?>" required>
             </p>
             <p>
-                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                <input type="password" name="password" class="form-control" placeholder="Пароль" required>
             </p>
             <p>
-                <input type="password" name="password_2" class="form-control" placeholder="Password" required>
+                <input type="password" name="password_2" class="form-control" placeholder="Подтверждение пароля" required>
+            </p>
+		    <p>
+                <input type="checkbox" name="av" class="form-control" id="av">
+	                <label for="av">Выдать права администратора?</label>
             </p>
             <p>
                 <button class="btn" name="do_signup" type="submin">Create Account</button>

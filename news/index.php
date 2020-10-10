@@ -13,9 +13,9 @@
                 <a href="../index.php">На главную</a>
             </div>
             <div class="auth">
-                <a class="status_f" href="signup.php">Регистрация</a>
-                <a class="status_f" href="signin.php">Войти</a>
-                <a class="status_t" href="signout.php">Выйти</a>
+                <a class="status_a" href="../signup.php">Регистрация нового пользователя</a>
+                <a class="status_f" href="../signin.php">Войти</a>
+                <a class="status_t" href="../signout.php">Выйти</a>
             </div>
         </nav>
     </header>
@@ -128,11 +128,5 @@
         </div>
     </section>
 </body>
+<?php require "../auth_checker.php";?>
 </html>
-<?php 
-if(isset($_SESSION['verfication_user'])){
-    echo '<style>.status_t{display:block;}</style>';
-}else{
-    echo '<style>.status_f{display:block;}</style>';
-}
-?>

@@ -16,7 +16,7 @@
                 <a href="#">Side 4</a>
             </div>
             <div class="auth">
-                <a class="status_f" href="signup.php">Регистрация</a>
+                <a class="status_a" href="signup.php">Регистрация нового пользователя</a>
                 <a class="status_f" href="signin.php">Войти</a>
                 <a class="status_t" href="signout.php">Выйти</a>
             </div>
@@ -24,18 +24,13 @@
     </header>
     <div class="weclome_side">
         <div class="status_t infoblock">
-            <p>Вы авторизованы!</p>
+            <p class="hello_msg">Вы авторизованы!</p>
+            <p class="hello_name">Привет, <?php echo $_SESSION['verfication_user']["username"];?>.</p>
         </div>
         <div class="status_f infoblock">
-            <p>Вы не авторизованы!</p>
+            <p class="hello_msg">Вы не авторизованы!</p>
         </div>
     </div>
 </body>
 </html>
-<?php 
-if(isset($_SESSION['verfication_user'])){
-    echo '<style>.status_t{display:block;}</style>';
-}else{
-    echo '<style>.status_f{display:block;}</style>';
-}
-?>
+<?php require "auth_checker.php";?>
